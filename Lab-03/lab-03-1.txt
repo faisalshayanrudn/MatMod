@@ -1,0 +1,16 @@
+model Project
+  parameter  Real a(start=0.336);
+  parameter  Real b(start=0.877);
+  parameter  Real c(start=0.441);
+  parameter  Real h(start=0.232); 
+  Real y1(start=321000);
+  Real y2(start=123000);
+  
+  equation
+    der(y1)= -a*y1-b*y2 + sin(time+1)+1;
+    der(y2)= -c*y1-h*y2 + cos(time+2)+2;
+
+  
+  annotation(experiment(StartTime=0, StopTime=1, Tplerance=1e-06,Interval=0.05));
+
+end Project;
