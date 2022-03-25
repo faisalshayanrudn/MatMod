@@ -1,0 +1,48 @@
+
+model Project
+  parameter  Real a=0.76;
+  parameter  Real b=0.000016;
+  parameter  Real N=1304;
+    
+  Real n(start=10);
+  equation
+    der(n) = (a+b*n) * (N-n); 
+
+  annotation(experiment(StartTime=0, StopTime=5, Tplerance=1e-06,Interval=0.05));
+
+end Project;
+
+
+
+
+
+model Project
+  parameter  Real a=0.000016;
+  parameter  Real b=0.6;
+  parameter  Real N=1304;
+    
+  Real n(start=10);
+  equation
+    der(n) = (a+b*n) * (N-n); 
+
+  annotation(experiment(StartTime=0, StopTime=0.1, Tplerance=1e-06,Interval=0.05));
+
+end Project;
+
+
+
+
+model Project
+  parameter  Real a=0.7;
+  parameter  Real b=0.7;
+  parameter  Real N=1304;
+    
+  Real n(start=11);
+  equation
+    der(n) = (sin(7*time)*a + b*sin(time)*n ) * (N-n); 
+
+  annotation(experiment(StartTime=0, StopTime=0.2, Tplerance=1e-06,Interval=0.05));
+
+end Project;
+
+
